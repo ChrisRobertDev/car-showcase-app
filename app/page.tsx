@@ -2,12 +2,13 @@
 
 import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from "@/components";
 import { fuels, yearsOfProduction } from "@/constants";
+import { CarProps } from "@/types";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [allCars, setAllCars] = useState([]);
+  const [allCars, setAllCars] = useState<CarProps[]>([]);
   const [loading, setLoading] = useState(false);
 
   // search states
@@ -93,7 +94,7 @@ export default function Home() {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-x1 font-bold">Oops, no results</h2>
-            <p>{allCars?.message}</p>
+            {/* <p>{allCars?.message}</p> */}
           </div>
         )}
       </div>
